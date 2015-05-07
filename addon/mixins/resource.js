@@ -25,7 +25,7 @@ export default Ember.Mixin.create({
     var adapter = store.adapterFor(this);
     var handler = this.get('actions.' + actionName);
     var invokeAdapterAction = (params) => {
-      var adapterAction = adapter.actionFor(this.type, actionName, this);
+      var adapterAction = adapter.actionFor(this.get('constructor.typeKey'), actionName, this);
       return adapterAction(params);
     };
 
